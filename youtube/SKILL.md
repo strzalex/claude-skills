@@ -1,11 +1,15 @@
 ---
 name: youtube
-description: Create a video summary note from a YouTube URL with metadata, key ideas, and detailed notes for Obsidian vault
+description: Create a video summary note from a YouTube URL, then compile into 4-Knowledge/ wiki page via Karpathy method
+source_repo: /Users/wojtek/code/claude-skills/youtube/SKILL.md
+type: skill-reference
 ---
 
 # YouTube Video Summary Skill
 
 Create a comprehensive note from a YouTube video for the Obsidian vault.
+
+Important: tutorial and walkthrough videos should be turned into usable step-by-step guides, not just summarized.
 
 ## Input
 
@@ -77,13 +81,20 @@ type: video
 ## Core Concepts
 [Brief bullets covering the foundational "what is this" and "how does it work" before diving into features. Include limits, pricing, key mental models.]
 
-## Features & How-Tos
+## Step-by-Step Tutorial
+
+### Step 1: [Action]
+What to click, type, open, or configure. Use imperative language. Include exact UI locations, inputs, and what should happen next.
+
+![[screenshot-file-name.jpg]]
+
+### Step 2: [Action]
+[Repeat for each major stage of the workflow]
+
+## Key Features & How They Work
 
 ### Feature Name
-What it does, how to access it, and practical details. Include specific steps, UI locations, settings, and options mentioned. If the presenter showed a workaround or tip, include it here.
-
-### Feature Name
-[Repeat for each distinct feature or capability covered]
+What it does, where it appears, and when to use it.
 
 ## Tips & Gotchas
 - Practical tips, workarounds, and non-obvious limitations mentioned in the video
@@ -97,14 +108,24 @@ What it does, how to access it, and practical details. Include specific steps, U
 [YouTube URL]
 ```
 
-**What to capture in each feature section:**
-- The exact capability (what it does)
-- How to access or trigger it (button location, menu path, specific steps)
+**What to capture in tutorial videos:**
+- The actual sequence of actions from the video
+- Exact UI locations, buttons, menus, toggles, routes, and inputs
+- What the presenter typed or configured when it matters
+- What happened after each step
+- Breaks, bugs, retries, and fixes shown in the video
 - Options and settings (formats, styles, limits)
-- Concrete example from the video showing it in action
-- Any numbers: limits, word counts, file sizes, costs
+- Concrete examples from the video showing the feature in action
+- Any numbers: limits, word counts, file sizes, costs, prices
 
-**The goal:** Someone reading this note can USE the tool/follow the process without watching the video. It's a reference doc, not a narrative.
+**Screenshots are required for tutorial/walkthrough videos whenever local extraction is feasible.**
+- Capture screenshots of key moments from the video
+- Prefer 4-8 screenshots for major workflow stages rather than every tiny action
+- Save them next to the note when that fits the vault's pattern
+- Embed them inline with Obsidian image embeds like `![[file.jpg]]`
+- Add screenshots at moments where the UI changes, a key setting appears, a result is shown, or a bug/fix becomes visible
+
+**The goal:** Someone reading this note can follow the workflow without watching the video. Write it like a guide, not a recap.
 
 ---
 
@@ -168,19 +189,34 @@ Q&A portions often contain the most valuable nuggets because:
 
 **Always scan the entire transcript including Q&A.** Don't stop summarizing when the main talk ends.
 
-### 5. Save the Note
+### 5. Save & Ingest
 
-Save to Inbox:
-`/Users/wojciechstrzalkowski/code/Obsidian Vault/01 Inbox/`
+**Step A: Save source note to Inbox**
+
+Save to: `/Users/wojtek/Documents/Second brain/2-Inbox/`
 
 Filename from title:
 - Remove special characters
 - Keep spaces (Obsidian-friendly)
 - Example: "How to Build Products Faster.md"
 
+**Step B: Compile to Knowledge (Karpathy method)**
+
+After saving the source note, run the Ingest workflow from `8-System/brain.md`:
+1. Check if a wiki page for this topic already exists in `4-Knowledge/`
+2. If yes: UPDATE the existing page with new insights, add this source to the YAML sources list
+3. If no: CREATE a new wiki page in the appropriate `4-Knowledge/` subfolder with a human-readable title
+4. Add `[[backlinks]]` to related wiki pages
+5. Add `[source: filename.md]` citations
+6. Move the source note from `2-Inbox/` to `5-Raw/`
+
+**Step C: Archive**
+
+Move processed source note to `5-Raw/`
+
 ## Quality Guidelines
 
-Follow the Writing Guidelines from `99 System/Writing Guidelines.md`:
+Follow the Writing Guidelines from `8-System/voice/Writing Guidelines.md`:
 - Short paragraphs (2-4 sentences)
 - Specific details over vague claims
 - No AI marker words (delve, tapestry, pivotal, foster, etc.)
@@ -195,6 +231,9 @@ Follow the Writing Guidelines from `99 System/Writing Guidelines.md`:
 - For each feature, did I include how to access it and what options exist?
 - Could someone USE this tool or follow this process from my notes without watching the video?
 - Did I capture workarounds, tips, and gotchas?
+- Did I convert the walkthrough into an actual step-by-step sequence instead of a summary?
+- Did I include screenshots of the key moments?
+- Does each screenshot correspond to a real step, state change, result, or debugging moment?
 
 **Additional self-check for Idea/Opinion:**
 - Did I include the best concrete example from the video?

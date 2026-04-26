@@ -1,6 +1,8 @@
 ---
 name: sort-into-vault
-description: Sort markdown notes from Clippings/ into the appropriate 40 Resources/ subfolder. Renames Twitter threads to descriptive titles.
+description: Process notes from Clippings/ and 2-Inbox/ through the Karpathy knowledge loop. Enriches, compiles to 4-Knowledge/ wiki, archives to 5-Raw/.
+source_repo: /Users/wojtek/code/claude-skills/sort-into-vault/SKILL.md
+type: skill-reference
 ---
 
 # Sort Into Vault Skill
@@ -18,8 +20,20 @@ If no arguments, list files in Clippings/ and ask which to sort.
 
 ## Vault Paths
 
-- **Intake**: `/Users/wojciechstrzalkowski/Documents/Obsidian/Obsidian Vault/Clippings/`
-- **Destination**: `/Users/wojciechstrzalkowski/Documents/Obsidian/Obsidian Vault/40 Resources/`
+- **Intake**: `Clippings/` and `2-Inbox/`
+- **Knowledge output**: `4-Knowledge/[subfolder]/[Readable Title].md`
+- **Archive**: `5-Raw/`
+
+## Knowledge Loop (Karpathy Method)
+
+This skill implements the Ingest workflow from `8-System/brain.md`:
+1. Read source file from intake
+2. Create or update a wiki page in `4-Knowledge/` (one page per concept, not per source)
+3. Wiki pages use human-readable names with proper capitalization, organized in subfolders by domain
+4. Add `[[backlinks]]` to related wiki pages and `[source: filename.md]` citations
+5. Move processed source to `5-Raw/`
+
+If a wiki page for this topic already exists, UPDATE it with new insights and add the source to the YAML frontmatter sources list. Don't create duplicates.
 
 ## Taxonomy
 
@@ -71,9 +85,9 @@ Examples:
 
 ### Step 3: Duplicate Check
 
-Search `40 Resources/` for similar content:
+Search `5-Raw/` for similar content:
 ```bash
-grep -r -l "distinctive phrase from note" "/Users/wojciechstrzalkowski/Documents/Obsidian/Obsidian Vault/40 Resources/"
+grep -r -l "distinctive phrase from note" "/Users/wojtek/Documents/Second brain/5-Raw/"
 ```
 
 If potential duplicate found:
@@ -182,7 +196,8 @@ After processing each file, report:
 ✓ Processed: "Original filename.md"
   → Title: "New Descriptive Title.md" (if renamed)
   → TL;DR: "First 80 chars of summary..."
-  → Destination: 40 Resources/Category/Subcategory/
+  → Knowledge: 4-Knowledge/Subfolder/Wiki Page Title.md (created/updated)
+  → Archive: 5-Raw/
   → Topics: #topic-1, #topic-2
 ```
 
