@@ -76,6 +76,23 @@ One-paragraph footer: skill used, date, scale (quick/deep), query count, sources
 - TL;DR must take a position, not hedge
 - Disconfirming section should be ~1/3 of report length when counter-evidence is substantial
 - Keep verbatim quotes in original language (italicized), analysis in user's language
-- Confidence labels visible on every finding
+- Confidence labels [HIGH] / [MEDIUM] / [LOW] must appear on every finding — keep these exactly as-is
 - Implications must tie back to the decision at stake
 - Gaps are as important as findings - they're the map to the next research
+
+## Prose style
+
+Write each finding as 2–4 full sentences in the user's language (Polish if the project is Polish). Do not use telegraphic shorthand, dashes as connectors, or mid-sentence language switching. Every sentence must be readable to a team member who has not seen the raw findings files.
+
+Bad: `−10% size-related returns vs. items bez porady rozmiarowej. Q2 2023, platformowa skala, corroborowane przez ChannelX.`
+Good: `Produkty kupowane z pomocą tego narzędzia były zwracane o 10% rzadziej niż te kupowane bez żadnej porady rozmiarowej. Wynik pochodzi z danych za Q2 2023, obejmuje pełną skalę platformy i został niezależnie potwierdzony przez dwa branżowe serwisy.`
+
+## Final readability eval (mandatory, silent — run before saving the file)
+
+After drafting the full report, perform one self-check pass:
+
+1. Read every paragraph. Flag any phrase that mixes languages mid-sentence — e.g. "corroborowane", "size-related returns" without context, "return rate" dropped in without explanation, internal sub-agent jargon carried over verbatim.
+2. For each flagged phrase: rewrite the sentence in fluent prose in the user's language. Do not add a glossary — fix inline only.
+3. Check that no finding is written as a dash-separated shorthand. If found, expand to full sentences.
+4. Confirm [HIGH] / [MEDIUM] / [LOW] labels are still present on every finding after rewrites.
+5. Save the file only after completing steps 1–4.
