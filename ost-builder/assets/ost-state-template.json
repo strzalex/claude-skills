@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "created_at": "",
+  "updated_at": "",
+  "current_step": "outcome | opportunities | solutions | assumption_tests | complete",
+  "miro_board_url": null,
+  "fallback_artifact": null,
+  "data_sources": {
+    "qualitative": [{"path": "", "type": "", "summary": ""}],
+    "quantitative": [],
+    "market_research": [],
+    "kpis_goals": [],
+    "user_provided": ""
+  },
+  "outcome": {
+    "statement": "",
+    "kpi": "",
+    "baseline_value": null,
+    "target_value": null,
+    "deadline": "",
+    "evidence": [{"source": "", "quote": ""}],
+    "approved_at": ""
+  },
+  "opportunities": [
+    {
+      "id": "opp-1",
+      "statement": "",
+      "citations": [{"source": "", "quote": ""}],
+      "pres": {
+        "pain": 0, "pain_rationale": "",
+        "reach": 0, "reach_rationale": "",
+        "evidence": 0, "evidence_rationale": "",
+        "strategic": 0, "strategic_rationale": "",
+        "total": 0, "user_edits": null
+      },
+      "approved": false,
+      "auto_decided": false,
+      "research_first_flag": false
+    }
+  ],
+  "solutions": [
+    {
+      "id": "sol-1",
+      "opportunity_id": "opp-1",
+      "title": "",
+      "description": "",
+      "type": "",
+      "confidence": "low",
+      "confidence_notes": "",
+      "citations": [],
+      "approved": false
+    }
+  ],
+  "assumption_tests": [
+    {
+      "id": "at-1",
+      "solution_ids": [],
+      "shared_test_id": null,
+      "category": "desirability | viability | feasibility | usability | ethical",
+      "assumption": "",
+      "test_type": "",
+      "success_metric": "",
+      "decision_rule": "",
+      "approved": false
+    }
+  ],
+  "research_first_queue": [],
+  "history": []
+}
